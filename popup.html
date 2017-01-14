@@ -1,59 +1,67 @@
 <html>
     <head>
         <style>
-            .switch {
-            position: relative;
-            display: inline-block;
-            width: 60px;
-            height: 34px;
+            body {
+                width: 106px;
+                height: 48px;
             }
 
-            .switch input {display:none;}
-
-            .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            -webkit-transition: .4s;
-            transition: .4s;
+            .onoffswitch {
+                margin-left: 10px; margin-top: 24px;
+                position: relative; width: 86px;
+                -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
             }
-
-            .slider:before {
-            position: absolute;
-            content: "";
-            height: 26px;
-            width: 26px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            -webkit-transition: .4s;
-            transition: .4s;
+            .onoffswitch-checkbox {
+                display: none;
             }
-
-            input:checked + .slider {
-            background-color: #2196F3;
+            .onoffswitch-label {
+                display: block; overflow: hidden; cursor: pointer;
+                border: 2px solid #999999; border-radius: 50px;
             }
-
-            input:focus + .slider {
-            box-shadow: 0 0 1px #2196F3;
+            .onoffswitch-inner {
+                display: block; width: 200%; margin-left: -100%;
+                transition: margin 0.3s ease-in 0s;
             }
-
-            input:checked + .slider:before {
-            -webkit-transform: translateX(26px);
-            -ms-transform: translateX(26px);
-            transform: translateX(26px);
+            .onoffswitch-inner:before, .onoffswitch-inner:after {
+                display: block; float: left; width: 50%; height: 24px; padding: 0; line-height: 24px;
+                font-size: 18px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+                box-sizing: border-box;
+            }
+            .onoffswitch-inner:before {
+                content: "ON";
+                padding-left: 12px;
+                background-color: #34A7C1; color: #FFFFFF;
+            }
+            .onoffswitch-inner:after {
+                content: "OFF";
+                padding-right: 12px;
+                background-color: #EEEEEE; color: #999999;
+                text-align: right;
+            }
+            .onoffswitch-switch {
+                display: block; width: 31px; margin: -3.5px;
+                background: #FFFFFF;
+                position: absolute; top: 0; bottom: 0;
+                right: 58px;
+                border: 2px solid #999999; border-radius: 50px;
+                transition: all 0.3s ease-in 0s; 
+            }
+            .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+                margin-left: 0;
+            }
+            .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+                right: 0px; 
             }
         </style>
     </head>
     <body>
-        <label class="switch">
-            <input type="checkbox" id="myonoffswitch">
-            <div class="slider"></div>
-        </label>
+        <div class="onoffswitch">
+            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+            <label class="onoffswitch-label" for="myonoffswitch">
+                <span class="onoffswitch-inner"></span>
+                <span class="onoffswitch-switch"></span>
+            </label>
+        </div>
         <script src="/popup.js"></script>
     </body>
 </html>
