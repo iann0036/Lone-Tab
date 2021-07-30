@@ -1,7 +1,7 @@
 {
   "name": "Lone Tab",
   "short_name": "Lone Tab",
-  "version": "1.0",
+  "version": "1.0.1",
   "manifest_version": 2,
   "author": "Ian Mckay",
   "description": "A new, unique session for every tab opened.",
@@ -31,7 +31,6 @@
   "permissions": [
     "webRequest",
     "webRequestBlocking",
-    "tabs",
     "storage",
     "*://*/*"
   ]
